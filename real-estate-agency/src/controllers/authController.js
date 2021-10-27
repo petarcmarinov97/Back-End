@@ -48,6 +48,15 @@ router.post('/register', async (req, res ) => {
             password,
         });
 
+        //Start: If we needs to be login after the registration form submit
+        let token = await authService.login({
+            username,
+            password
+        })
+
+        res.cookie(AUTH_COOKIE_NAME, token);
+
+        //End
         res.redirect('/');
 
     } catch (error) {
