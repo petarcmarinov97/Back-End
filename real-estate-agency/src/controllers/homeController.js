@@ -1,7 +1,11 @@
 const router = require('express').Router();
 
-router.get('/', (req, res) => {
-    res.render('home');
+const housingService = require('../services/housingService');
+
+router.get('/', async (req, res) => {
+    let housings = await housingService.getTopHouses();
+
+    res.render('home', { title: 'Home Page', housings } );
 });
 
 module.exports = router;
