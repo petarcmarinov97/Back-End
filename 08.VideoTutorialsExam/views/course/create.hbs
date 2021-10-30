@@ -14,7 +14,7 @@
             <input type="text" class="form-control" placeholder="Image Url" id="imageUrl" name="imageUrl" value="{{courseData.imageUrl}}">
         </div>
         <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="check-box" name="isPublic" value="{{courseData.isPublic}}">
+            <input type="checkbox" class="form-check-input" id="check-box" {{#if courseData.isPublic}}checked{{/if}} name="isPublic">
             <label class="form-check-label" for="check-box">Public</label>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
